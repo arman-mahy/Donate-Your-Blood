@@ -30,12 +30,6 @@
     <link rel="stylesheet" href="../icofont/icofont.min.css">
 
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
 
 </head>
 
@@ -75,11 +69,13 @@ $bloodgroup = $_POST["bloodgroup"];
 $address = $_POST["address"];
 $contact = $_POST["contact"];
 $username = $_POST["username"];
+$donor = $_POST["donor"];
 $password = $_POST["password"];
 
 include 'dbconnect.php';
 //code after connection is successfull
-$qry = "insert into register(name,email,gender,dob,bloodgroup,address,contact,username,password) values ('$name','$email','$gender','$dob','$bloodgroup','$address','$contact', '$username', '$password')";
+$qry = "insert into register(name,email,gender,dob,bloodgroup,address,contact,username,donor,password) values
+ ('$name','$email','$gender','$dob','$bloodgroup','$address','$contact', '$username', '$donor', '$password')";
 $result = mysqli_query($conn,$qry); //query executes
 
 if(!$result){
@@ -93,6 +89,8 @@ if(!$result){
 }else{
     echo"<h3>YOU ARE NOT AUTHORIZED TO REDIRECT THIS PAGE. GO BACK to <a href='index.php'> DASHBOARD </a></h3>";
 }
+
+
 
 
 ?>

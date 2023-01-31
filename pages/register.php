@@ -93,6 +93,12 @@
                                             
                                         </div>
 
+                                        <div class="checkbox">
+                                        <label>
+                                            <input name="donor" type="checkbox" value="donor">Donor
+                                        </label>
+                                    </div>
+
                                         <div class="form-group">
                                             <label>Enter Password</label>
                                             <input class="form-control" name="password" type="password" id="myInput" required>
@@ -102,6 +108,8 @@
                                                 </label>
                                             </div>
                                         </div>
+
+                                       
 
                                         <button type="submit" class="btn btn-success" class="btn btn-success" style="border-radius:0%";>Submit Form</button>
 

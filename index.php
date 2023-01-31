@@ -39,11 +39,11 @@
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="pages\login.php">Sign In</a>
+          <a class="nav-link" href="pages\login.php" target="blank">Sign In</a>
         </li>
 
         <li class="nav-item">
-          <a class="nav-link" href="pages\register.php">Sign Up</a>
+          <a class="nav-link" href="pages\register.php" target="blank">Sign UP</a>
         </li>
         
       </ul>
@@ -54,7 +54,7 @@
           </div>
   </div>
 </nav>
-
+<!-- nav-bar code ends -->
 
 <?php
 				if (isset($_POST['login']))
@@ -84,7 +84,7 @@
 					}
 			  ?>
 
-<!-- nav-bar code ends -->
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
