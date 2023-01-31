@@ -18,8 +18,17 @@
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+    <!-- MetisMenu CSS -->
+    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+
     <!-- Custom CSS -->
-    <link href="../dist/css/custom.css" rel="stylesheet">
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="../icofont/icofont.min.css">
+
 
 
 </head>
@@ -46,41 +55,47 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" action="index.php" method="post">
+                                    <form role="form" action="addblood.php" method="post">
             <?php 
 
 if(isset($_POST['name'])){
-$name = $_POST["name"];    
-$email = $_POST["email"];
-$gender = $_POST["gender"];
-$dob = $_POST["dob"];
+    $name = $_POST["name"];    
+    $email = $_POST["email"];
+    $gender = $_POST["gender"];
+    $dob = $_POST["dob"];
+    
+    $bloodgroup = $_POST["bloodgroup"];
+    
+    $address = $_POST["address"];
+    $contact = $_POST["contact"];
+    $username = $_POST["username"];
+    $donor = $_POST["donor"];
+    $password = $_POST["password"];
+    
 
-$bloodgroup = $_POST["bloodgroup"];
+$available = $_POST["available"];
 
-$address = $_POST["address"];
-$contact = $_POST["contact"];
-$username = $_POST["username"];
-$donor = $_POST["donor"];
-$password = $_POST["password"];
+ALTER TABLE Persons
+ADD DateOfBirth date;
 
 include 'dbconnect.php';
 //code after connection is successfull
-$qry = "insert into register(name,email,gender,dob,bloodgroup,address,contact,username,donor,password) values
- ('$name','$email','$gender','$dob','$bloodgroup','$address','$contact', '$username', '$donor', '$password')";
+$qry = "ALTER table register ADD(available) values 
+-- cant add new column value to an exisitng table
+ ('$available')";
 $result = mysqli_query($conn,$qry); //query executes
 
 if(!$result){
     echo"ERROR";
 }else {
     echo" <div style='text-align: center'><h1>SUBMITTED SUCCESSFULLY</h1>";
-    echo" <a href='login.php' div style='text-align: center'><h3>Login</h3>";
+    echo" <a href='home.php' div style='text-align: center'><h3>home</h3>";
 
 }
 
 }else{
-    echo"<h3>YOU ARE NOT AUTHORIZED TO REDIRECT THIS PAGE. GO BACK to <a href='../index.php'> DASHBOARD </a></h3>";
+    echo"<h3>YOU ARE NOT AUTHORIZED TO REDIRECT THIS PAGE. GO BACK to <a href='home.php'> DASHBOARD </a></h3>";
 }
-
 
 
 

@@ -2,10 +2,10 @@
 
 <head>
 
-<title>DYB</title>
+    <title>DYB</title>
 
 
-<link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 
 
@@ -15,32 +15,33 @@
 
 
 <body>
-<div id="wrapper">
+    <div id="wrapper">
 
-<div id="page-wrapper">
-<div class="container-fluid">
-<div class="row">
-<div class=".col-lg-12">
-               <h1 class="page-header">Donors Detail</h1>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class=".col-lg-12">
+                        <h1 class="page-header">Donors Detail</h1>
+                    </div>
                 </div>
-  </div>  
 
-				<div class="row">
-                        <div class=".col-lg-12">
-                            <div class="panel panel-default">
-                                <div class="panel-heading">
-                                    Total Records of available donors
-                                </div>
-								
-								 <div class="panel-body">
-                                    <div class="table-responsive">
-									<table class="table table-striped table-bordered table-hover" id="dataTables-example">
-									
-									<?php
+                <div class="row">
+                    <div class=".col-lg-12">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                Total Records of available donors
+                            </div>
+
+                            <div class="panel-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered table-hover"
+                                        id="dataTables-example">
+
+                                        <?php
 
 						include "dbconnect.php";
 
-						$qry="select * from register where donor='donor'";
+						$qry="select * from register where available='available'";
 						$result=mysqli_query($conn,$qry);
 
 
@@ -55,6 +56,7 @@
 							<th>Address</th>
                             <th>Contact</th>
                             <th>Donor</th>
+                            <th>Available</th>
 							
 						</tr>
 						</thead>";
@@ -71,6 +73,7 @@
 						  <td>".$row['address']."</td>
 						  <td>".$row['contact']."</td>
                           <td>".$row['donor']."</td>
+                          <td>".$row['available']."</td>
 						  
 						  
 
@@ -79,26 +82,29 @@
 						}
 
 						?>
-						</table>
-									
-				</div>
-				</div>		
-		</div>
-		</div>	
-		</div>	
-		</div>
-		</div>
+                                    </table>
 
-</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
- 
+    </div>
+
+    <div align="center">
+        <a href="home.php" align="center">Dashborad</a>
+    </div>
 
 
-<script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
 
 </body>
 
-	
-	
+
+
 </html>
