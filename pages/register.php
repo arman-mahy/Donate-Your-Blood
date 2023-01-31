@@ -95,7 +95,7 @@
 
                                         <div class="checkbox">
                                         <label>
-                                            <input name="donor" type="checkbox" value="donor">Donor
+                                            <input name="donor" type="checkbox" value="YES">Donor
                                         </label>
                                     </div>
 
