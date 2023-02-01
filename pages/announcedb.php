@@ -49,7 +49,8 @@
                                     <form role="form" action="index.php" method="post">
             <?php 
 
-if(isset($_POST['title'])){
+if(isset($_POST['name'])){
+$name = $_POST["name"];  
 $title = $_POST["title"];    
 $blood_type = $_POST["blood_type"];
 $publish_date = $_POST["publish_date"];
@@ -58,8 +59,8 @@ $details = $_POST["details"];
 
 include 'dbconnect.php';
 //code after connection is successfull
-$qry = "insert into announcement(title,blood_type,publish_date,needed_date,details) 
-values ('$title','$blood_type','$publish_date','$needed_date','$details')";
+$qry = "insert into announcement(name,title,blood_type,publish_date,needed_date,details) 
+values ('$name','$title','$blood_type','$publish_date','$needed_date','$details')";
 $result = mysqli_query($conn,$qry); //query executes
 
 if(!$result){

@@ -44,6 +44,11 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <form role="form" action="announcedb.php" method="post">
+
+                                    <div class="form-group">
+                                            <label>Name</label>
+                                            <input class="form-control" type="text" placeholder="example: Arman Mahy" name="name" required>
+                                        </div>
                                      
                                         <div class="form-group">
                                             <label>Enter Announcement Title</label>

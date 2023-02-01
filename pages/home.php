@@ -16,6 +16,7 @@
 <a href='viewblood.php' div style='text-align: center'><h3>Available Blood</h3>";
 <a href='makeannouncement.php' div style='text-align: center'><h3>Make Announcement</h3>";
 <a href='viewannouncement.php' div style='text-align: center'><h3>View Announcements</h3>";
+<a href='editannounceform.php' div style='text-align: center'><h3>Edit Announcements</h3>";
 
 </body>
 </html>
