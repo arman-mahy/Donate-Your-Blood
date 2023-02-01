@@ -13,21 +13,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>BDMS</title>
+    <title>DYB</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-    <!-- MetisMenu CSS -->
-    <link href="../vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
-
-    <!-- Custom CSS -->
-    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
-
-    <!-- Custom Fonts -->
-    <link href="../vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
-
-    <link rel="stylesheet" href="../icofont/icofont.min.css">
 
 
 
@@ -37,11 +27,12 @@
 
     <div id="wrapper">
 
+        
 
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">DYB</h1>
+                    <h1 class="page-header"></h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -55,46 +46,33 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" action="addblood.php" method="post">
+                                    <form role="form" action="index.php" method="post">
             <?php 
 
-if(isset($_POST['name'])){
-    $name = $_POST["name"];    
-    $email = $_POST["email"];
-    $gender = $_POST["gender"];
-    $dob = $_POST["dob"];
-    
-    $bloodgroup = $_POST["bloodgroup"];
-    
-    $address = $_POST["address"];
-    $contact = $_POST["contact"];
-    $username = $_POST["username"];
-    $donor = $_POST["donor"];
-    $password = $_POST["password"];
-    
-
-$available = $_POST["available"];
-
-
+if(isset($_POST['title'])){
+$title = $_POST["title"];    
+$blood_type = $_POST["blood_type"];
+$publish_date = $_POST["publish_date"];
+$needed_date = $_POST["needed_date"];
+$details = $_POST["details"];
 
 include 'dbconnect.php';
 //code after connection is successfull
-$qry = "UPDATE register SET available = available WHERE $username = ".$row['username']."";
-// error here
+$qry = "insert into announcement(title,blood_type,publish_date,needed_date,details) 
+values ('$title','$blood_type','$publish_date','$needed_date','$details')";
 $result = mysqli_query($conn,$qry); //query executes
 
 if(!$result){
     echo"ERROR";
 }else {
-    echo" <div style='text-align: center'><h1>SUBMITTED SUCCESSFULLY</h1>";
-    echo" <a href='home.php' div style='text-align: center'><h3>home</h3>";
+    echo" <div style='text-align: center'><h1>ANNOUNCEMENT MADE</h1>";
+    echo" <a href='home.php' div style='text-align: center'><h3>Go Back</h3>";
 
 }
 
 }else{
     echo"<h3>YOU ARE NOT AUTHORIZED TO REDIRECT THIS PAGE. GO BACK to <a href='home.php'> DASHBOARD </a></h3>";
 }
-
 
 
 ?>
@@ -106,24 +84,26 @@ if(!$result){
                                 </div>
                                 
                             </div>
-                            
+                         
                         </div>
-                      
+                     
                     </div>
-                    
+                 
                 </div>
                
             </div>
-          
+         
         </div>
-       
+      
 
     </div>
-    
-
    
-</body>
 
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+
+
+</body>
 
 
 </html>
