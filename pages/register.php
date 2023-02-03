@@ -104,7 +104,7 @@
 
                                        
 
-                                        <button type="submit" class="btn btn-success" class="btn btn-success" style="border-radius:0%";>Submit Form</button>
+                                        <button type="submit" name="submit_form" class="btn btn-success" style="border-radius:0%";>Submit Form</button>
 
                 
                                     </form>

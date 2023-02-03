@@ -1,4 +1,12 @@
+<?php
+session_start();
+if(!isset($_SESSION['user_id'])){
+	header('location:index.php');	
+	}
+?>
+
 <!DOCTYPE html>
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -17,6 +25,10 @@
 <a href='makeannouncement.php' div style='text-align: center'><h3>Make Announcement</h3>";
 <a href='viewannouncement.php' div style='text-align: center'><h3>View Announcements</h3>";
 <a href='editannounceform.php' div style='text-align: center'><h3>Edit Announcements</h3>";
+<a href='campaign.php' div style='text-align: center'><h3>Campaign</h3>";
+<a href='viewcampaign.php' div style='text-align: center'><h3>View Campaign's</h3>";
+<?php echo $_SESSION['id']; ?>
+
 
 </body>
 </html>

@@ -47,18 +47,19 @@
 
 						include "dbconnect.php";
 
-                        $sql = "select id from register";
-                        $session_result = mysqli_query($conn,$sql);
+                        // $sql = "select id from register";
+                        // $session_result = mysqli_query($conn,$sql);
 
-                        $res=mysqli_fetch_array($session_result);
+                        // $res=mysqli_fetch_array($session_result);
                             
                             
 
-                            $newLangs = implode($res);
+                        //     $newLangs = implode($res);
 
-                            echo $newLangs;
+                        //     echo $newLangs;
+							
                         
-						$qry="select * from announcement where user_id ='$newLangs' ";
+						$qry="select * from register INNER JOIN announcement ON register.id = announcement.user_id ";
 						$result=mysqli_query($conn,$qry);
 
 

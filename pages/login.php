@@ -1,5 +1,6 @@
-<?php session_start(); ?>
-<?php include('dbcon.php'); ?>
+<?php session_start();
+include('dbcon.php'); ?>
+
 <html>
 <head>
 	<meta charset="utf-8">
@@ -42,24 +43,40 @@
 		{
 			$username = mysqli_real_escape_string($con, $_POST['username']);
 			$password = mysqli_real_escape_string($con, $_POST['password']);
+			//$user_id = mysqli_real_escape_string($con, $_POST['id']);
+		
 			
 			$query 		= mysqli_query($con, "SELECT * FROM register WHERE  password='$password' and username='$username'");
 			$row		= mysqli_fetch_array($query);
 			$num_row 	= mysqli_num_rows($query);
+
+			if(is_array($row)){
+				$_SESSION["id"] = $row["id"];
+				header('location:home.php');
+			//	$_SESSION["password"] = $row["password"];
+			}
+			else{
+				echo "Wrong id pass";
+			}
 			
-			if ($num_row > 0) 
-				{			
-					$_SESSION['user_id']=$row['user_id'];
-					header('location:home.php');
+			// if ($num_row > 0) 
+			// 	{			
+			// 		$_SESSION["id"]=$row["id"];
+			// 		header('location:home.php');
 					
-				}
-			else
-				{
-					echo '
-								<div class="alert alert-danger alert-dismissible">
-                                        Invalid Username & Password.
-                                    </div> ';
-				}
+					
+			// 	}
+			// else
+			// 	{
+			// 		echo '
+			// 					<div class="alert alert-danger alert-dismissible">
+            //                             Invalid Username & Password.
+            //                         </div> ';
+			// 	}
+		}
+
+		if(isset($_SESSION["id"])){
+			//header("Location:../index.php");
 		}
   ?>
 				

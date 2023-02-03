@@ -20,6 +20,11 @@
 
 
 
+    <!-- Custom CSS -->
+    <link href="../css/custom.css" rel="stylesheet">
+
+
+
 
 </head>
 
@@ -27,7 +32,6 @@
 
     <div id="wrapper">
 
-        
 
         <div id="page-wrapper">
             <div class="row">
@@ -49,31 +53,29 @@
                                     <form role="form" action="index.php" method="post">
             <?php 
 
-if(isset($_POST['name'])){
-$name = $_POST["name"];  
-$title = $_POST["title"];    
-$blood_type = $_POST["blood_type"];
-$publish_date = $_POST["publish_date"];
-$needed_date = $_POST["needed_date"];
-$details = $_POST["details"];
+if(isset($_POST['cname'])){
+$cname = $_POST["cname"];    
+$oname = $_POST["oname"];
+$contact = $_POST["contact"];
+$cdate = $_POST["cdate"];
+$clocation = $_POST["clocation"];
+$cdes = $_POST["cdes"];
 
-$user_id = $_SESSION["id"] ;
 include 'dbconnect.php';
 //code after connection is successfull
-$qry = "insert into announcement(user_id,name,title,blood_type,publish_date,needed_date,details) 
-values ('$user_id','$name','$title','$blood_type','$publish_date','$needed_date','$details')";
+$qry = "insert into campaign(cname,oname,contact,cdate,clocation,cdes) values ('$cname','$oname','$contact','$cdate','$clocation','$cdes')";
 $result = mysqli_query($conn,$qry); //query executes
 
 if(!$result){
     echo"ERROR";
 }else {
-    echo" <div style='text-align: center'><h1>ANNOUNCEMENT MADE</h1>";
+    echo" <div style='text-align: center'><h1>SUBMITTED SUCCESSFULLY</h1>";
     echo" <a href='home.php' div style='text-align: center'><h3>Go Back</h3>";
 
 }
 
 }else{
-    echo"<h3>YOU ARE NOT AUTHORIZED TO REDIRECT THIS PAGE. GO BACK to <a href='home.php'> DASHBOARD </a></h3>";
+    echo"<h3>YOU ARE NOT AUTHORIZED TO REDIRECT THIS PAGE. GO BACK to <a href='index.php'> DASHBOARD </a></h3>";
 }
 
 
@@ -86,26 +88,29 @@ if(!$result){
                                 </div>
                                 
                             </div>
-                         
+                            <!-- /.row (nested) -->
                         </div>
-                     
+                        <!-- /.panel-body -->
                     </div>
-                 
+                    <!-- /.panel -->
                 </div>
-               
+                <!-- /.col-lg-12 -->
             </div>
-         
+            <!-- /.row -->
         </div>
-      
+        <!-- /#page-wrapper -->
 
     </div>
-   
+    <!-- /#wrapper -->
+
+  
 
     <!-- Bootstrap Core JavaScript -->
     <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
 
 
 </body>
+
 
 
 </html>

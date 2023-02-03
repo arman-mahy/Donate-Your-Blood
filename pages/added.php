@@ -46,10 +46,10 @@
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" action="index.php" method="post">
+                                    <form role="form" action="login.php" method="post">
             <?php 
 
-if(isset($_POST['name'])){
+if(isset($_POST['submit_form'])){
 $name = $_POST["name"];    
 $email = $_POST["email"];
 $gender = $_POST["gender"];
