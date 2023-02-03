@@ -1,4 +1,5 @@
 
+<?php session_start(); ?>
 <html>
 
 <head>
@@ -58,8 +59,8 @@
 
                         //     echo $newLangs;
 							
-                        
-						$qry="select * from register INNER JOIN announcement ON register.id = announcement.user_id ";
+                        $user_id = $_SESSION["id"] ;
+						$qry="select * from announcement t1 where t1.user_id = $user_id ";
 						$result=mysqli_query($conn,$qry);
 
 

@@ -52,6 +52,7 @@ include('dbcon.php'); ?>
 
 			if(is_array($row)){
 				$_SESSION["id"] = $row["id"];
+				$_SESSION["details"] = $row;
 				header('location:home.php');
 			//	$_SESSION["password"] = $row["password"];
 			}

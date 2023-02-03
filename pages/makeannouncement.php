@@ -1,3 +1,4 @@
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -44,10 +45,10 @@
                             <div class="row">
                                 <div class="col-lg-6">
                                     <form role="form" action="announcedb.php" method="post">
-
+                                    <?php $details = $_SESSION["details"]; ?>
                                     <div class="form-group">
                                             <label>Name</label>
-                                            <input class="form-control" type="text" placeholder="example: Arman Mahy" name="name" required>
+                                            <input class="form-control" type="text" placeholder="example: Arman Mahy" value="<?php echo $details["name"]; ?>" readonly name="name" required>
                                         </div>
                                      
                                         <div class="form-group">

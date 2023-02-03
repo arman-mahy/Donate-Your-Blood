@@ -48,7 +48,7 @@
 
                                         <div class="checkbox">
                                         <label>
-                                            <input name="available" type="checkbox" value="available">Available to Donate
+                                            <input name="available" type="checkbox" value="available" required>Available to Donate
                                         </label>
                                     </div>
 

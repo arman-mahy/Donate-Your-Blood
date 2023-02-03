@@ -1,7 +1,7 @@
 
 
 
-
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -37,7 +37,6 @@
 
     <div id="wrapper">
 
-
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
@@ -58,31 +57,16 @@
                                     <form role="form" action="addblood.php" method="post">
             <?php 
 
-if(isset($_POST['name'])){
-    $name = $_POST["name"];    
-    $email = $_POST["email"];
-    $gender = $_POST["gender"];
-    $dob = $_POST["dob"];
-    
-    $bloodgroup = $_POST["bloodgroup"];
-    
-    $address = $_POST["address"];
-    $contact = $_POST["contact"];
-    $username = $_POST["username"];
-    $donor = $_POST["donor"];
-    $password = $_POST["password"];
-    
-
-$available = $_POST["available"];
+if(isset($_POST['available'])){
+    $id = $_SESSION["id"];
 
 
 
 include 'dbconnect.php';
 //code after connection is successfull
-$qry = "UPDATE register SET available = available WHERE $username = ".$row['username']."";
+$qry = "UPDATE register SET available = 'available' WHERE id = $id";
 // error here
 $result = mysqli_query($conn,$qry); //query executes
-
 if(!$result){
     echo"ERROR";
 }else {
