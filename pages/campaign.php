@@ -75,7 +75,7 @@
                 
 
                                         <div class="form-group">
-                                            <label>Description</label>
+                                            <label>Campaign Description</label>
                                             <textarea class="form-control" type="text" rows="4" name="cdes" required></textarea>
                                         </div>
                                        

@@ -34,7 +34,7 @@
                         <div class=".col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Total Records of available campaign
+                                    Campaign's are Running
                                 </div>
 								
 								 <div class="panel-body">
