@@ -12,7 +12,7 @@ $result=mysqli_query($conn,$qry);
 
 if($result){
     echo"DELETED";
-    header('Location:deleteannouncement.php');
+    header('Location:deletecampaign.php');
 }else{
     echo"ERROR!!";
 }
