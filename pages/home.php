@@ -31,6 +31,7 @@ if(!isset($_SESSION['id'])){
 <a href='campaign.php' div style='text-align: center'><h3>Campaign</h3>";
 <a href='viewcampaign.php' div style='text-align: center'><h3>View Campaign's</h3>";
 <a href='editcampaignform.php' div style='text-align: center'><h3>Edit Campaign's</h3>";
+<a href='deletecampaign.php' div style='text-align: center'><h3>Delete Campaign's</h3>";
 
 
 
