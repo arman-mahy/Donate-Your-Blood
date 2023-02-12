@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['user_id'])){
+if(!isset($_SESSION['id'])){
 	header('location:index.php');	
 	}
 ?>
@@ -27,6 +27,7 @@ if(!isset($_SESSION['user_id'])){
 <a href='editannounceform.php' div style='text-align: center'><h3>Edit Announcements</h3>";
 <a href='campaign.php' div style='text-align: center'><h3>Campaign</h3>";
 <a href='viewcampaign.php' div style='text-align: center'><h3>View Campaign's</h3>";
+
 
 
 <?php echo $_SESSION['id']; ?>
