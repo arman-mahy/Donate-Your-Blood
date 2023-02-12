@@ -21,13 +21,17 @@ if(!isset($_SESSION['id'])){
 
 <a href='viewdonor.php' div style='text-align: center'><h3>View Donor</h3>";
 <a href='addblood.php' div style='text-align: center'><h3>Add Blood</h3>";
-<a href='viewblood.php' div style='text-align: center'><h3>Available Blood</h3>";
+<a href='viewblood.php' div style='text-align: center'><h3>Available Blood</h3>"; 
+<br>
 <a href='makeannouncement.php' div style='text-align: center'><h3>Make Announcement</h3>";
 <a href='viewannouncement.php' div style='text-align: center'><h3>View Announcements</h3>";
 <a href='editannounceform.php' div style='text-align: center'><h3>Edit Announcements</h3>";
+<a href='deleteannouncement.php' div style='text-align: center'><h3>Delete Announcement</h3>";
+<br>
 <a href='campaign.php' div style='text-align: center'><h3>Campaign</h3>";
 <a href='viewcampaign.php' div style='text-align: center'><h3>View Campaign's</h3>";
 <a href='editcampaignform.php' div style='text-align: center'><h3>Edit Campaign's</h3>";
+
 
 
 
