@@ -48,7 +48,8 @@
                                     <?php $details = $_SESSION["details"]; ?>
                                     <div class="form-group">
                                             <label>Name</label>
-                                            <input class="form-control" type="text" placeholder="example: Arman Mahy" value="<?php echo $details["name"]; ?>" readonly name="name" required>
+                                            <input class="form-control" type="text" placeholder="example: Arman Mahy" 
+                                            value="<?php echo $details["name"]; ?>" readonly name="name" required>
                                         </div>
                                      
                                         <div class="form-group">
@@ -99,8 +100,7 @@
     </div>
 
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
+  
 
    
 

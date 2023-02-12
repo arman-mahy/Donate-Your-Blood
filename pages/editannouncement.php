@@ -58,32 +58,38 @@
                                      
                                     <div class="form-group">
                                             <label>Name</label>
-                                            <input class="form-control" type="text" placeholder="example: Arman Mahy" value="<?php echo $details["name"]; ?>" readonly name="name" required>
+                                            <input class="form-control" type="text" placeholder="example: Arman Mahy"  
+                                            value="<?php echo $details["name"]; ?>"  readonly name="name" required>
                                         </div>
                                      
                                         <div class="form-group">
                                             <label>Enter Announcement Title</label>
-                                            <input class="form-control" type="text" placeholder="Announcement Title" name="title" value="<?php echo $details["name"]; ?>" required>
+                                            <input class="form-control" type="text" placeholder="Announcement Title" name="title" 
+                                             >
                                         </div>
                                         
                                         <div class="form-group">
                                             <label>Blood Needed (Type)</label>
-                                            <input class="form-control" type="text" placeholder="example: B+" name="blood_type" value="<?php echo $details["name"]; ?>" required>
+                                            <input class="form-control" type="text" placeholder="example: B+" name="blood_type" 
+                                          required>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Need Date</label>
-                                            <input class="form-control" type="date" name="needed_date" value="<?php echo $details["name"]; ?>" required>
+                                            <input class="form-control" type="date" name="needed_date" 
+                                            required>
                                         </div>
 
                                         <div class="form-group">
                                             <label>Today's Date</label>
-                                            <input class="form-control" type="date" name="publish_date" value="<?php echo $details["name"]; ?>" required>
+                                            <input class="form-control" type="date" name="publish_date" 
+                                            required>
                                         </div>
 
                                         <div class="form-group">
                                                 <label>Details</label>
-                                                <textarea class="form-control" rows="4" type="text" name="details" value="<?php echo $details["name"]; ?>" required></textarea>
+                                                <textarea class="form-control" rows="4" type="text" name="details" 
+                                              required></textarea>
                                             </div>
                                        
                                      <!-- id hidden grna input type ma "hidden" -->

@@ -1,28 +1,18 @@
-
-
-
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
 
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
     <title>DYB</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
-
+ 
 
     <!-- Custom CSS -->
-    <link href="../css/custom.css" rel="stylesheet">
-
+    <link href="../dist/css/sb-admin-2.css" rel="stylesheet">
 
 
 
@@ -36,7 +26,7 @@
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header"></h1>
+                    <h1 class="page-header">DYB</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -45,15 +35,15 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Confirmation
+                            MESSAGE BOX
                         </div>
                         <div class="panel-body">
                             <div class="row">
                                 <div class="col-lg-6">
-                                    <form role="form" action="index.php" method="post">
-            <?php 
+                                    <form role="form" action="" method="post">
 
-if(isset($_POST['cname'])){
+<?php
+include 'dbconnect.php';
 $cname = $_POST["cname"];    
 $oname = $_POST["oname"];
 $contact = $_POST["contact"];
@@ -62,30 +52,18 @@ $clocation = $_POST["clocation"];
 $cdes = $_POST["cdes"];
 
 $user_id = $_SESSION["id"] ;
-include 'dbconnect.php';
-//code after connection is successfull
-$qry = "insert into campaign(user_id,cname,oname,contact,cdate,clocation,cdes) values ('$user_id','$cname','$oname','$contact','$cdate','$clocation','$cdes')";
+//update query
+$qry = "update campaign set cname='$cname', oname='$oname', contact='$contact', cdate='$cdate', clocation='$clocation', cdes='$cdes'  where user_id='$user_id'";
 $result = mysqli_query($conn,$qry); //query executes
-
 if(!$result){
-    echo"ERROR";
+    echo"ERROR". mysqli_error();
 }else {
-    echo" <div style='text-align: center'><h1>SUBMITTED SUCCESSFULLY</h1>";
-    echo" <a href='home.php' div style='text-align: center'><h3>Go Back</h3>";
-
+    echo"CAMPAIGN UPDATED";
+    // header ("Location:editblood.php");
 }
-
-}else{
-    echo"<h3>YOU ARE NOT AUTHORIZED TO REDIRECT THIS PAGE. GO BACK to <a href='index.php'> DASHBOARD </a></h3>";
-}
-
-
 ?>
-                                    
-                                
-                                        
-                
-                                    </form>
+
+                                  </form>
                                 </div>
                                 
                             </div>
@@ -104,14 +82,8 @@ if(!$result){
     </div>
     <!-- /#wrapper -->
 
-  
-
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../vendor/bootstrap/js/bootstrap.min.js"></script>
-
-
+   
 </body>
-
 
 
 </html>
