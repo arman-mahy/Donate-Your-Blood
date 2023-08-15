@@ -49,10 +49,10 @@
                 <a class="nav-link" href="#">About</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="pages\login.php" target="blank">Sign In</a>
+                <a class="nav-link" href="pages\login.php" >Sign In</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="pages\register.php" target="blank">Sign Up</a>
+                <a class="nav-link" href="pages\register.php" >Sign Up</a>
               </li>
             </ul>
           </div>
@@ -160,7 +160,11 @@
             <img src="pics/logo.png" alt="" />
             <h1>Start Saving Lives</h1>
             <p>Become a donor or request for blood and help lives</p>
-            <button type="button" class="btn btn-primary">Register</button>
+            <form method="post" class="logout-btn">
+      <a href="pages\register.php" class="btn btn-danger">
+        <i class="fas fa-sign-out-alt"></i> SIGN UP
+      </a>
+    </form>
           </div>
         </div>
       </div>

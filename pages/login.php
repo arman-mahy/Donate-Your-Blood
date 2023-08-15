@@ -1,104 +1,76 @@
-<?php session_start();
-include('dbcon.php'); ?>
+<?php
+session_start();
+include('dbcon.php');
+?>
 
 <html>
 <head>
-	<meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <title>Blood Donation Website - Sign In</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="../css/login.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 </head>
 <body>
+  <div class="container-fluid bg-light">
+    <div class="row justify-content-center">
+      <div class="col-sm-6 col-md-4">
+        <div class="card">
+          <div class="card-body">
+            <h3 class="card-title text-center mb-4"><i class="fas fa-heart"></i> Blood Donation Website</h3>
+            <form method="post">
+              <div class="form-group">
+                <label for="username"><i class="fas fa-envelope"></i> Username</label>
+                <input type="text" name="username" class="form-control input_user" value="" placeholder="Username" required>
+              </div>
+              <div class="form-group">
+                <label for="password"><i class="fas fa-lock"></i> Password</label>
+                <input type="password" name="password" class="form-control input_pass" value="" placeholder="Password" required>
+              </div>
+              <div class="form-check mb-3">
+                <input type="checkbox" class="form-check-input" id="remember-me">
+                <label class="form-check-label" for="remember-me">Remember me</label>
+              </div>
+              <button type="submit" name="userlogin" style="border-radius: 0%" class="btn login_btn">User Login</button>
+            </form>
+            <hr>
+            <p class="text-center">Don't have an account? <a href="register.php">Sign up</a></p>
+            <p class="text-center"> <a href="../index.php">Home</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
-<body>
+  <?php
+  if (isset($_POST['userlogin'])) {
+    $username = mysqli_real_escape_string($con, $_POST['username']);
+    $password = mysqli_real_escape_string($con, $_POST['password']);
 
-	<div class="container h-100">
-		<div class="d-flex justify-content-center h-100">
-			<div class="user_card">
-				<div class="d-flex justify-content-center">
-					
-				</div>
-				<div class="d-flex justify-content-center form_container">
-					<form action="#" method="post">
-						<div class="input-group mb-3">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-user"></i></span>
-							</div>
-							<input type="text" name="username" class="form-control input_user" value="" placeholder="Username" required>
-						</div>
-						<div class="input-group mb-2">
-							<div class="input-group-append">
-								<span class="input-group-text"><i class="fas fa-key"></i></span>
-							</div>
-							<input type="password" name="password" class="form-control input_pass" value="" placeholder="Password" required>
-						</div>
-						
-							<div class="d-flex justify-content-center mt-3 login_container">
-				 	<button type="submit" name="userlogin" style="border-radius: 0%" class="btn login_btn">User Login</button>
-				   </div>
-					</form>
-				</div>
-				
-				<?php
-	if (isset($_POST['userlogin']))
-		{
-			$username = mysqli_real_escape_string($con, $_POST['username']);
-			$password = mysqli_real_escape_string($con, $_POST['password']);
-			//$user_id = mysqli_real_escape_string($con, $_POST['id']);
-		
-			
-			$query 		= mysqli_query($con, "SELECT * FROM register WHERE  password='$password' and username='$username'");
-			$row		= mysqli_fetch_array($query);
-			$num_row 	= mysqli_num_rows($query);
+    $query = mysqli_query($con, "SELECT * FROM register WHERE password='$password' AND username='$username'");
+    $row = mysqli_fetch_array($query);
+    $num_row = mysqli_num_rows($query);
 
-			if(is_array($row)){
-				$_SESSION["id"] = $row["id"];
-				$_SESSION["details"] = $row;
-				header('location:home.php');
-			//	$_SESSION["password"] = $row["password"];
-			}
-			else{
-				echo "Wrong id pass";
-			}
-			
-			// if ($num_row > 0) 
-			// 	{			
-			// 		$_SESSION["id"]=$row["id"];
-			// 		header('location:home.php');
-					
-					
-			// 	}
-			// else
-			// 	{
-			// 		echo '
-			// 					<div class="alert alert-danger alert-dismissible">
-            //                             Invalid Username & Password.
-            //                         </div> ';
-			// 	}
-		}
+    if ($num_row == 1) {
+      $_SESSION["id"] = $row["id"];
+      $_SESSION["details"] = $row;
+      header('location:home.php');
+    } else {
+      echo "Wrong username or password";
+    }
+  }
 
-		if(isset($_SESSION["id"])){
-			//header("Location:../index.php");
-		}
+  if (isset($_SESSION["id"])) {
+    //header("Location:../index.php");
+  }
   ?>
-				
-				
-		
-				<div class="mt-4">
-					<!--<div class="d-flex justify-content-center links">
-						Don't have an account? <a href="#"  class="ml-2" style="text-decoration:none">Sign Up</a>
-					</div> -->
-					<div class="d-flex justify-content-center links">
-						<a href="../" style="text-decoration:none; color: white">Back to Admin Panel</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </body>
-
-
-
 </html>
-
